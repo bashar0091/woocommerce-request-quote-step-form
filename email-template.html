@@ -1,0 +1,384 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Email Template</title>
+
+        <style>
+            .step_form_wrapper * {
+                margin: 0;
+                padding: 0;
+            }
+            .heading_1 {
+                color: #000;
+                font-family: Poppins;
+                font-size: 30.25px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 51.2px;
+            }
+            .step_form_wrapper {
+                width: 580px;
+                margin: 0 auto;
+            }
+            .heading_2 {
+                color: #f05a28;
+                font-family: Inter;
+                font-size: 19.337px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 33.28px;
+                margin: 6px 0 12px 0;
+            }
+            .progress_wrapper {
+                display: flex;
+                gap: 3px;
+            }
+            .progress_line {
+                width: 44.73px;
+                height: 2px;
+                border-radius: 16px;
+                background: #ccc;
+            }
+            .progress_line.active {
+                background: #f05a28;
+            }
+            .car_image {
+                width: 100px;
+                height: 84px;
+                border-radius: 10px;
+                border: 1px solid #f05a28;
+                background: #fff;
+                overflow: hidden;
+            }
+            .car_image img {
+                width: 100%;
+            }
+            .heading_3 {
+                color: rgba(0, 0, 0, 0.87);
+                font-family: Poppins;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                margin-left: -60px;
+            }
+            .counter_wrapper {
+                display: inline-flex;
+                padding: 8px;
+                justify-content: center;
+                align-items: center;
+                border-radius: 170px;
+                border: 1px solid var(--Gray-Scale-Gray-100, #e6e6e6);
+                background: var(--Gray-Scale-White, #fff);
+            }
+            .counter_wrapper .plus_,
+            .counter_wrapper .minus_ {
+                width: 34px;
+                height: 34px;
+                border-radius: 170px;
+                background: var(--Gray-Scale-Gray-50, #f2f2f2);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+            }
+            .counter_wrapper .number_ {
+                width: 40px;
+                color: var(--Gray-Scale-Gray-900, #1a1a1a);
+                text-align: center;
+                font-family: Poppins;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%;
+                border: none;
+            }
+            .car_wrapper_item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 25px 0;
+                border-top: 1px solid #dcdce6;
+            }
+            .car_wrapper_item:first-child {
+                border-color: transparent;
+            }
+            .date_input_item input {
+                width: 92%;
+                height: 50px;
+                border-radius: 100px;
+                border: 1px solid #b5b5b5;
+                background: #fff;
+                padding: 0 10px;
+            }
+            .date_input_wrapper {
+                display: flex;
+                gap: 50px;
+                margin-top: 30px;
+            }
+            .date_input_item {
+                flex: 1;
+            }
+            .note_ label,
+            .date_input_item label {
+                color: #000;
+                font-family: Inter;
+                font-size: 12.375px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 23.04px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                margin-bottom: 10px;
+            }
+            .note_ textarea {
+                height: 100px;
+                border: 1px solid #ccc;
+                background: #fff;
+                width: 100%;
+                padding: 10px;
+            }
+            .note_ {
+                margin-top: 30px;
+            }
+            .step_btn {
+                display: inline-flex;
+                padding: 10px 24px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                border-radius: 100px;
+                background: #f05a28;
+                color: #fff !important;
+                text-align: center;
+                font-family: Poppins;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 28.16px;
+                text-decoration: none;
+                margin-top: 25px;
+                border: none;
+                cursor: pointer;
+            }
+            .note_ input {
+                height: 48px;
+                border: 1px solid #ccc;
+                background: #fff;
+                width: 100%;
+                padding: 0 10px;
+            }
+            .heading_4 {
+                color: #000;
+                font-family: Poppins;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 51.2px;
+                margin-top: 30px;
+            }
+            .note_2col {
+                display: flex;
+                justify-content: space-between;
+                gap: 40px;
+            }
+            .note_2col .note_ {
+                flex: 1;
+            }
+            .step_2,
+            .step_3 {
+                display: none;
+            }
+            .step_back_btn {
+                background: #a5a5a5;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="heading_1" style="color: #000; font-family: Poppins; font-size: 30.25px; font-style: normal; font-weight: 700; line-height: 51.2px;">Offerte aanvragen</h1>
+
+        <div style="border: 1px solid #ddd; padding: 10px; margin: 10px;">
+            <h3 style="color: #f05a28; font-family: Inter; font-size: 19.337px; font-style: normal; font-weight: 600; line-height: 33.28px; margin: 6px 0 12px 0;">Step 1</h3>
+
+            <table style="width: 100%;">
+                <tr class="car_wrapper_item">
+                    <td>
+                        <div class="car_image" style="width: 100px; height: 84px; border-radius: 10px; border: 1px solid #f05a28; background: #fff; overflow: hidden;">
+                            <img src="https://aecoded.com/wp-content/uploads/2023/12/bus1-Background-Removed.png" alt="car" style="width: 100%;" />
+                        </div>
+                    </td>
+
+                    <td>
+                        <h3 style="color: rgba(0, 0, 0, 0.87); font-family: Poppins; font-size: 18px; font-style: normal; font-weight: 600; line-height: normal; margin-left: -60px;">Mercedes-Benz Sprinter</h3>
+                    </td>
+
+                    <td>
+                        <div class="counter_wrapper" style="display: inline-flex; padding: 8px; justify-content: center; align-items: center; border-radius: 170px; border: 1px solid #858585; background: var(--Gray-Scale-White, #fff);">
+                            1
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div style="display: flex; gap: 50px; margin-top: 30px;">
+                <div style="flex: 1;">
+                    <label style="color: #000; font-family: Inter; font-size: 12.375px; font-style: normal; font-weight: 400; line-height: 23.04px; display: flex; align-items: center; gap: 5px; margin-bottom: 10px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="17" viewBox="0 0 15 17" fill="none">
+                            <g clip-path="url(#clip0_1_1495)">
+                                <path
+                                    d="M4.49505 10.12C4.38937 10.1226 4.28429 10.1035 4.18627 10.0639C4.08825 10.0244 3.99935 9.9652 3.92505 9.89002C3.84967 9.81586 3.79036 9.72699 3.75079 9.62893C3.71122 9.53087 3.69225 9.42572 3.69505 9.32002C3.69505 9.09302 3.77205 8.90302 3.92505 8.75002C3.99917 8.6746 4.08803 8.61525 4.1861 8.57568C4.28417 8.53611 4.38934 8.51716 4.49505 8.52002C4.72205 8.52002 4.91205 8.59702 5.06505 8.75002C5.21905 8.90402 5.29505 9.09402 5.29505 9.32002C5.29761 9.42569 5.27852 9.53077 5.23897 9.6288C5.19942 9.72682 5.14023 9.81572 5.06505 9.89002C4.99092 9.96544 4.90206 10.0248 4.80399 10.0644C4.70592 10.1039 4.60076 10.1229 4.49505 10.12ZM7.69505 10.12C7.58937 10.1226 7.48429 10.1035 7.38627 10.0639C7.28825 10.0244 7.19935 9.9652 7.12505 9.89002C7.04967 9.81586 6.99036 9.72699 6.95079 9.62893C6.91122 9.53087 6.89225 9.42572 6.89505 9.32002C6.89505 9.09302 6.97205 8.90302 7.12505 8.75002C7.19917 8.6746 7.28804 8.61525 7.3861 8.57568C7.48417 8.53611 7.58934 8.51716 7.69505 8.52002C7.92105 8.52002 8.11105 8.59702 8.26505 8.75002C8.41905 8.90402 8.49505 9.09402 8.49505 9.32002C8.49761 9.42569 8.47852 9.53077 8.43897 9.6288C8.39942 9.72682 8.34023 9.81572 8.26505 9.89002C8.19092 9.96544 8.10206 10.0248 8.00399 10.0644C7.90592 10.1039 7.80076 10.1229 7.69505 10.12ZM10.895 10.12C10.7892 10.1227 10.6839 10.1037 10.5857 10.0641C10.4875 10.0246 10.3985 9.96533 10.324 9.89002C10.2487 9.81586 10.1894 9.72699 10.1498 9.62893C10.1102 9.53087 10.0912 9.42572 10.094 9.32002C10.094 9.09302 10.171 8.90302 10.324 8.75002C10.3982 8.6746 10.487 8.61525 10.5851 8.57568C10.6832 8.53611 10.7883 8.51716 10.894 8.52002C11.121 8.52002 11.311 8.59702 11.464 8.75002C11.618 8.90402 11.694 9.09402 11.694 9.32002C11.6966 9.42569 11.6775 9.53077 11.638 9.6288C11.5984 9.72682 11.5392 9.81572 11.464 9.89002C11.3899 9.96544 11.3011 10.0248 11.203 10.0644C11.1049 10.1039 10.9998 10.1229 10.894 10.12H10.895ZM2.09505 16.52C1.65505 16.52 1.27905 16.363 0.965047 16.05C0.813541 15.9039 0.693654 15.7282 0.612809 15.5338C0.531964 15.3394 0.491883 15.1305 0.495047 14.92V3.72002C0.495047 3.28002 0.652047 2.90302 0.965047 2.59002C1.28005 2.27602 1.65605 2.12002 2.09505 2.12002H2.89505V0.52002H4.49505V2.12002H10.895V0.52002H12.495V2.12002H13.294C13.734 2.12002 14.111 2.27702 14.424 2.59002C14.738 2.90402 14.894 3.28002 14.894 3.72002V14.92C14.894 15.36 14.737 15.737 14.424 16.05C14.2778 16.2014 14.1021 16.3213 13.9077 16.4021C13.7134 16.4829 13.5045 16.5231 13.294 16.52H2.09505ZM2.09505 14.92H13.294V6.92002H2.09505V14.92Z"
+                                    fill="#3A3A3A"
+                                />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_1_1495">
+                                    <rect width="15" height="16" fill="white" transform="translate(0 0.52002)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        Ophaaldatum
+                    </label>
+                    <span style="border: 1px solid #b9b9b9; padding: 10px; display: block;">27/12/2023</span>
+                </div>
+                <div style="flex: 1;">
+                    <label for="end_date" style="color: #000; font-family: Inter; font-size: 12.375px; font-style: normal; font-weight: 400; line-height: 23.04px; display: flex; align-items: center; gap: 5px; margin-bottom: 10px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="17" viewBox="0 0 15 17" fill="none">
+                            <g clip-path="url(#clip0_1_1495)">
+                                <path
+                                    d="M4.49505 10.12C4.38937 10.1226 4.28429 10.1035 4.18627 10.0639C4.08825 10.0244 3.99935 9.9652 3.92505 9.89002C3.84967 9.81586 3.79036 9.72699 3.75079 9.62893C3.71122 9.53087 3.69225 9.42572 3.69505 9.32002C3.69505 9.09302 3.77205 8.90302 3.92505 8.75002C3.99917 8.6746 4.08803 8.61525 4.1861 8.57568C4.28417 8.53611 4.38934 8.51716 4.49505 8.52002C4.72205 8.52002 4.91205 8.59702 5.06505 8.75002C5.21905 8.90402 5.29505 9.09402 5.29505 9.32002C5.29761 9.42569 5.27852 9.53077 5.23897 9.6288C5.19942 9.72682 5.14023 9.81572 5.06505 9.89002C4.99092 9.96544 4.90206 10.0248 4.80399 10.0644C4.70592 10.1039 4.60076 10.1229 4.49505 10.12ZM7.69505 10.12C7.58937 10.1226 7.48429 10.1035 7.38627 10.0639C7.28825 10.0244 7.19935 9.9652 7.12505 9.89002C7.04967 9.81586 6.99036 9.72699 6.95079 9.62893C6.91122 9.53087 6.89225 9.42572 6.89505 9.32002C6.89505 9.09302 6.97205 8.90302 7.12505 8.75002C7.19917 8.6746 7.28804 8.61525 7.3861 8.57568C7.48417 8.53611 7.58934 8.51716 7.69505 8.52002C7.92105 8.52002 8.11105 8.59702 8.26505 8.75002C8.41905 8.90402 8.49505 9.09402 8.49505 9.32002C8.49761 9.42569 8.47852 9.53077 8.43897 9.6288C8.39942 9.72682 8.34023 9.81572 8.26505 9.89002C8.19092 9.96544 8.10206 10.0248 8.00399 10.0644C7.90592 10.1039 7.80076 10.1229 7.69505 10.12ZM10.895 10.12C10.7892 10.1227 10.6839 10.1037 10.5857 10.0641C10.4875 10.0246 10.3985 9.96533 10.324 9.89002C10.2487 9.81586 10.1894 9.72699 10.1498 9.62893C10.1102 9.53087 10.0912 9.42572 10.094 9.32002C10.094 9.09302 10.171 8.90302 10.324 8.75002C10.3982 8.6746 10.487 8.61525 10.5851 8.57568C10.6832 8.53611 10.7883 8.51716 10.894 8.52002C11.121 8.52002 11.311 8.59702 11.464 8.75002C11.618 8.90402 11.694 9.09402 11.694 9.32002C11.6966 9.42569 11.6775 9.53077 11.638 9.6288C11.5984 9.72682 11.5392 9.81572 11.464 9.89002C11.3899 9.96544 11.3011 10.0248 11.203 10.0644C11.1049 10.1039 10.9998 10.1229 10.894 10.12H10.895ZM2.09505 16.52C1.65505 16.52 1.27905 16.363 0.965047 16.05C0.813541 15.9039 0.693654 15.7282 0.612809 15.5338C0.531964 15.3394 0.491883 15.1305 0.495047 14.92V3.72002C0.495047 3.28002 0.652047 2.90302 0.965047 2.59002C1.28005 2.27602 1.65605 2.12002 2.09505 2.12002H2.89505V0.52002H4.49505V2.12002H10.895V0.52002H12.495V2.12002H13.294C13.734 2.12002 14.111 2.27702 14.424 2.59002C14.738 2.90402 14.894 3.28002 14.894 3.72002V14.92C14.894 15.36 14.737 15.737 14.424 16.05C14.2778 16.2014 14.1021 16.3213 13.9077 16.4021C13.7134 16.4829 13.5045 16.5231 13.294 16.52H2.09505ZM2.09505 14.92H13.294V6.92002H2.09505V14.92Z"
+                                    fill="#3A3A3A"
+                                />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_1_1495">
+                                    <rect width="15" height="16" fill="white" transform="translate(0 0.52002)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        Retourdatum
+                    </label>
+                    <span style="border: 1px solid #b9b9b9; padding: 10px; display: block;">27/12/2023</span>
+                </div>
+            </div>
+
+            <div class="note_">
+                <label for="note">
+                    Opmerking(en)
+                </label>
+                <span style="border: 1px solid #b9b9b9; padding: 10px; display: block;">27/12/2023</span>
+            </div>
+        </div>
+
+        <div style="border: 1px solid #ddd; padding: 10px; margin: 10px;">
+            <h3 class="heading_2">Step 2</h3>
+
+            <div class="note_">
+                <label for="company_name">
+                    Bedrijfsnaam
+                </label>
+                <span style="border: 1px solid #b9b9b9; padding: 10px; display: block;">27/12/2023</span>
+            </div>
+        </div>
+
+        <div style="border: 1px solid #ddd; padding: 10px; margin: 10px;">
+            <h3 class="heading_2">Step 3</h3>
+
+            <h2 class="heading_4">Gegevens bedrijf</h2>
+
+            <div>
+                <div class="note_">
+                    <label for="company_name_2">
+                        Bedrijfsnaam
+                    </label>
+                    <span style="border: 1px solid #b9b9b9; padding: 10px; display: block;">27/12/2023</span>
+                </div>
+
+                <div class="note_2col">
+                    <div class="note_">
+                        <label for="kvk_num">
+                            KVK nummer
+                        </label>
+                        <span style="border: 1px solid #b9b9b9; padding: 10px; display: block;">27/12/2023</span>
+                    </div>
+                    <div class="note_">
+                        <label for="btw_num">
+                            BTW nummer
+                        </label>
+                        <span style="border: 1px solid #b9b9b9; padding: 10px; display: block;">27/12/2023</span>
+                    </div>
+                </div>
+
+                <div class="note_2col">
+                    <div class="note_">
+                        <label for="post_code">
+                            Postcode
+                        </label>
+                        <span style="border: 1px solid #b9b9b9; padding: 10px; display: block;">27/12/2023</span>
+                    </div>
+                    <div class="note_">
+                        <label for="house_no">
+                            Huisnummer en toevoeging
+                        </label>
+                        <span style="border: 1px solid #b9b9b9; padding: 10px; display: block;">27/12/2023</span>
+                    </div>
+                </div>
+
+                <div class="note_2col">
+                    <div class="note_">
+                        <label for="street_name">
+                            Straatnaam
+                        </label>
+                        <span style="border: 1px solid #b9b9b9; padding: 10px; display: block;">27/12/2023</span>
+                    </div>
+                    <div class="note_">
+                        <label for="quote_place">
+                            Plaats
+                        </label>
+                        <span style="border: 1px solid #b9b9b9; padding: 10px; display: block;">27/12/2023</span>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="heading_4">Gegevens contactpersoon</h2>
+
+            <div>
+                <div class="note_2col">
+                    <div class="note_">
+                        <label for="first_name">
+                            Voornaam
+                        </label>
+                        <span style="border: 1px solid #b9b9b9; padding: 10px; display: block;">27/12/2023</span>
+                    </div>
+                    <div class="note_">
+                        <label for="quote_infix">
+                            Tussenvoegsel
+                        </label>
+                        <span style="border: 1px solid #b9b9b9; padding: 10px; display: block;">27/12/2023</span>
+                    </div>
+                    <div class="note_">
+                        <label for="last_name">
+                            Achternaam
+                        </label>
+                        <span style="border: 1px solid #b9b9b9; padding: 10px; display: block;">27/12/2023</span>
+                    </div>
+                </div>
+
+                <div class="note_2col">
+                    <div class="note_">
+                        <label for="email_address">
+                            E-mailadres
+                        </label>
+                        <span style="border: 1px solid #b9b9b9; padding: 10px; display: block;">27/12/2023</span>
+                    </div>
+                    <div class="note_">
+                        <label for="phone_number">
+                            Telefoonnummer
+                        </label>
+                        <span style="border: 1px solid #b9b9b9; padding: 10px; display: block;">27/12/2023</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
