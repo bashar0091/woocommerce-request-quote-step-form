@@ -21,7 +21,7 @@ function custom_email_function() {
             );
         }
 
-        $to = 'atikqul4u@gmail.com,awalbashar194@gmail.com'; // Replace with your Gmail address
+        $to = 'madridh44@gmail.com'; // Replace with your Gmail address
         $subject = 'Request a Quote';
     
         // Create a large email body

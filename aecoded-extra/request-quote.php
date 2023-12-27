@@ -207,6 +207,40 @@ function request_quote_shortcode() {
         .error {
             border-color: red !important;
         }
+        @media (max-width: 767px) {
+            .step_form_wrapper {
+                width: 100%;
+                padding: 0 20px;
+            }
+            .date_input_wrapper {
+                flex-direction: column;
+            }
+            .date_input_item input {
+                width: 100%;
+            }
+            .note_2col {
+                flex-direction: column;
+                gap: 0px;
+            }
+            .car_wrapper_item {
+                align-items: start;
+                justify-content: start;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .heading_3 {
+                margin-left: 0;
+            }
+            .car_image {
+                order: 2;
+            }
+            .heading_3 {
+                order: 1;
+            }
+            .counter_wrapper {
+                order: 3;
+            }
+        }
     </style>
 
     <form action="" method="post">
@@ -225,10 +259,15 @@ function request_quote_shortcode() {
                 </div>
 
                 <div class="car_wrapper_list">';
+                    
+                    $product_ids = isset($_GET['product_id']) ? $_GET['product_id'] : '';
+
+                    $product_ids_array = array_map('intval', (array) $product_ids);
 
                     $args = array(
-                        'post_type' => 'product',
-                        'posts_per_page' => -1, // Set to -1 to display all products, you can adjust this number
+                        'post_type'      => 'product',
+                        'posts_per_page' => -1,
+                        'post__in'       => $product_ids_array, 
                     );
                     
                     $products_query = new WP_Query( $args );

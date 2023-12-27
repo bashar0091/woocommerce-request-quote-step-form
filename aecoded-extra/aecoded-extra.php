@@ -28,7 +28,7 @@ function product_extra_addons() {
         $start_time = $_POST['start_time'];
         $end_time = $_POST['end_time'];
 
-        $product_price = $_POST['product_price'];
+        $product_price = isset( $_POST['product_price'] ) && !empty( $_POST['product_price'] ) ? $_POST['product_price'] : 0;
 
         $cart_item_data = array(
             'start_date' => $start_date,
@@ -477,3 +477,64 @@ add_shortcode( 'filter_result', 'filter_result_action' );
  */
 require_once plugin_dir_path( __FILE__ ) . 'request-quote.php';
 require_once plugin_dir_path( __FILE__ ) . 'request-quote-send-email.php';
+
+
+
+function stock_handler_shortcode() {
+
+    $stock_in_message = get_field('stock_in_message');
+    $stock_out_message = get_field('stock_out_message');
+
+    $output = '';
+
+    if( !empty($stock_in_message) ) {
+        $output .= '
+        <a
+            class="elementor-button elementor-size-sm"
+            role="button"
+            style="
+                border-radius: 4px;
+                background: rgba(32, 181, 38, 0.2);
+                color: var(--Branding-Success-Dark, #2c742f);
+
+                /* Body Small/Body Small, 400 */
+                font-family: Poppins;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%; /* 21px */
+            "
+        >
+            <span class="elementor-button-content-wrapper">
+                <span class="elementor-button-text">'.$stock_in_message.'</span>
+            </span>
+        </a>
+        ';
+    } elseif ( !empty($stock_out_message) ) {
+        $output .= '
+        <a
+            class="elementor-button elementor-size-sm"
+            role="button"
+            style="
+                border-radius: 4px;
+                background: rgba(222, 3, 31, 0.2);
+                color: #7b0009;
+
+                /* Body Small/Body Small, 400 */
+                font-family: Poppins;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%; /* 21px */
+            "
+        >
+            <span class="elementor-button-content-wrapper">
+                <span class="elementor-button-text">'.$stock_out_message.'</span>
+            </span>
+        </a>
+        ';
+    }
+
+    return $output;
+}
+add_shortcode( 'stock_manage', 'stock_handler_shortcode' );
